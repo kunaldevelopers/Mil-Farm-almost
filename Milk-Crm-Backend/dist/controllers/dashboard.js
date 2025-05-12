@@ -43,6 +43,55 @@ const getDashboardData = (req, res) => __awaiter(void 0, void 0, void 0, functio
         const monthlyTotals = yield getMonthlyDeliveryTotal(queryDate);
         // Get success rate for today
         const deliverySuccessRate = yield getDeliverySuccessRate(startDate, endDate);
+        // Get priority clients with their delivery status for today
+        const priorityClients = yield Client_1.Client.aggregate([
+            { $match: { priorityStatus: true } },
+            {
+                $lookup: {
+                    from: "dailydeliveries",
+                    let: { clientId: "$_id" },
+                    pipeline: [
+                        {
+                            $match: {
+                                $expr: {
+                                    $and: [
+                                        { $eq: ["$clientId", "$$clientId"] },
+                                        { $gte: ["$date", startDate] },
+                                        { $lte: ["$date", endDate] },
+                                    ],
+                                },
+                            },
+                        },
+                    ],
+                    as: "todayDelivery",
+                },
+            },
+            {
+                $lookup: {
+                    from: "staffs",
+                    localField: "assignedStaff",
+                    foreignField: "_id",
+                    as: "staff",
+                },
+            },
+            {
+                $project: {
+                    name: 1,
+                    location: 1,
+                    timeShift: 1,
+                    quantity: 1,
+                    pricePerLitre: 1,
+                    staff: { $arrayElemAt: ["$staff.name", 0] },
+                    deliveryStatus: {
+                        $cond: {
+                            if: { $gt: [{ $size: "$todayDelivery" }, 0] },
+                            then: { $arrayElemAt: ["$todayDelivery.deliveryStatus", 0] },
+                            else: "Pending",
+                        },
+                    },
+                },
+            },
+        ]);
         // Get assigned milk quantity
         const totalAssignedQuantity = yield Client_1.Client.aggregate([
             { $group: { _id: null, totalQuantity: { $sum: "$quantity" } } },
@@ -82,13 +131,14 @@ const getDashboardData = (req, res) => __awaiter(void 0, void 0, void 0, functio
             assignmentStatus: {
                 totalQuantityAssigned: assignedQuantity,
             },
+            priorityClients,
             deliveryRecords,
             staffPerformance,
             shiftAnalytics,
         });
     }
     catch (error) {
-        console.error("Error fetching dashboard data:", error);
+        console.error("[DASHBOARD] Error:", error);
         res.status(500).json({
             message: "Error retrieving dashboard data",
             error: error instanceof Error ? error.message : "Unknown error",
