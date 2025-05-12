@@ -1,0 +1,175 @@
+/* 
+   MUI Reset Stylesheet - Balanced Approach
+   Removes Material UI default styling while preserving functionality
+   This allows us to use custom CSS classes throughout the application
+*/
+
+/* Base MUI component reset */
+.MuiPaper-root,
+.MuiButton-root,
+.MuiButtonBase-root,
+.MuiAppBar-root,
+.MuiDrawer-root,
+.MuiGrid-root,
+.MuiToolbar-root,
+.MuiList-root,
+.MuiCardContent-root,
+.MuiCardHeader-root,
+.MuiCard-root,
+.MuiTypography-root,
+.MuiTextField-root,
+.MuiInput-root,
+.MuiSelect-root,
+.MuiMenuItem-root,
+.MuiFormControl-root,
+.MuiFormLabel-root,
+.MuiInputLabel-root,
+.MuiInputBase-root,
+.MuiOutlinedInput-root,
+.MuiFilledInput-root,
+.MuiDialog-root,
+.MuiDialogTitle-root,
+.MuiDialogContent-root,
+.MuiDialogActions-root,
+.MuiTab-root,
+.MuiTabs-root,
+.MuiAccordion-root,
+.MuiAccordionSummary-root,
+.MuiAccordionDetails-root,
+.MuiChip-root,
+.MuiBadge-root,
+.MuiAvatar-root,
+.MuiPopover-root,
+.MuiMenu-root {
+  /* Remove visual styling but preserve structure */
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  text-transform: none !important;
+  font-family: inherit !important;
+  color: inherit !important;
+  transition: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  letter-spacing: normal !important;
+}
+
+/* Reset specific MUI effects */
+.MuiButtonBase-root:hover,
+.MuiButton-root:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.MuiButton-root::after,
+.MuiButton-root::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Keep MUI ripple effect disabled */
+.MuiTouchRipple-root,
+.MuiTouchRipple-ripple,
+.MuiTouchRipple-child {
+  display: none !important;
+}
+
+/* Reset borders and outlines */
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+
+/* Reset specific MUI positioning */
+.MuiButton-startIcon,
+.MuiButton-endIcon,
+.MuiSvgIcon-root {
+  margin: 0 !important;
+}
+
+/* Preserve basic layout but reset styling */
+.MuiGrid-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* Specific reset for Dialog components */
+.MuiDialog-paper,
+.MuiPopover-paper,
+.MuiMenu-paper {
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+}
+
+/* Reset form spacing */
+.MuiFormControl-root {
+  margin: 0 !important;
+}
+
+/* Reset specific effects */
+.Mui-focused,
+.Mui-selected {
+  background-color: transparent !important;
+}
+
+/* Preserve core layout functionality for components that need it */
+.MuiDataGrid-root {
+  /* The DataGrid functionality needs some specific styles to work properly */
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  overflow: hidden !important; /* Needed for proper scrolling */
+}
+
+/* Items that need structural CSS to function properly */
+.MuiCard-root {
+  display: block !important;
+}
+
+.MuiDrawer-paper {
+  position: fixed !important;
+  height: 100% !important;
+  overflow-y: auto !important; /* Enable scrolling */
+}
+
+/* Preserve form component functionality */
+.MuiFormControl-root {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  vertical-align: top !important;
+}
+
+/* Preserve dialog positioning */
+.MuiDialog-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Calendar/DatePicker components need these properties */
+.MuiCalendarPicker-root,
+.MuiPickersDay-root {
+  position: relative !important;
+}
+
+/* Maintain dropdown positioning */
+.MuiSelect-select {
+  display: block !important;
+  user-select: none !important;
+}
+
+/* Preserve table layout */
+.MuiTable-root {
+  display: table !important;
+  width: 100% !important;
+}
+
+.MuiTableRow-root {
+  display: table-row !important;
+}
+
+.MuiTableCell-root {
+  display: table-cell !important;
+}
+
+/* This ensures our custom CSS rules will take precedence */

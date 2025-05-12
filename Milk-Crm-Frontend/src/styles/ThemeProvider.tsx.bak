@@ -1,0 +1,120 @@
+// Custom ThemeProvider to apply our dark theme to Material UI components
+import React from 'react';
+import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+// Import the necessary package for DataGrid styling
+// Note: This is just for type declaration, you'll need to install the actual package
+// using npm install @mui/x-data-grid if you haven't already
+declare module '@mui/material/styles' {
+  interface ComponentNameToClassKey {
+    MuiDataGrid: any;
+  }
+
+  interface ComponentsPropsList {
+    MuiDataGrid: any;
+  }
+  
+  interface Components {
+    MuiDataGrid?: {
+      defaultProps?: Record<string, any>;
+      styleOverrides?: {
+        root?: any;
+        [key: string]: any;
+      };
+      variants?: any[];
+    };
+  }
+}
+
+// Create a minimal theme that provides just enough styling to make components work
+// Most styling will be handled by our custom CSS files (MuiReset.css + our custom styles)
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    // Minimal palette with just enough to support component states    background: {
+      default: '#121212', // Dark background
+      paper: '#1e1e1e',   // Slightly lighter dark background
+    },
+    primary: {
+      main: '#2196f3', // Keep this for component states
+    },
+    secondary: {
+      main: '#4caf50',
+    },
+    error: {
+      main: '#f44336', 
+    },
+    warning: {
+      main: '#ff9800',
+    },
+    info: {
+      main: '#03a9f4',
+    },
+    success: {
+      main: '#4caf50',
+    },    text: {
+      primary: '#ffffff', // Using white instead of 'inherit'
+      secondary: 'rgba(255, 255, 255, 0.7)',
+      disabled: 'rgba(255, 255, 255, 0.5)',
+    },
+    divider: 'rgba(255, 255, 255, 0.12)', // Using translucent white instead of 'transparent'
+  },  // Minimal typography settings - let CSS handle most of this
+  typography: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', // Using system fonts instead of 'inherit'
+    button: {
+      textTransform: 'none', // Just disable the uppercase transform
+    },
+  },  shape: {
+    borderRadius: 0, // Reset to 0, let our CSS handle border radius
+  },
+  // Minimal component overrides - our CSS will handle most styling
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          // Let CSS handle these styles
+          backgroundColor: 'inherit',
+          color: 'inherit',
+        },
+      },
+    },
+    // Disable ripple effect globally
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    // Remove text transform from buttons
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
+    // Remove borders from inputs unless focused
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          border: '1px solid transparent',
+        },
+      },
+    },
+  },
+});
+
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  return (
+    <MuiThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  );
+};
+
+export default ThemeProvider;

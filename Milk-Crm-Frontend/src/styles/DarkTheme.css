@@ -1,0 +1,795 @@
+/* 
+   Milk CRM Dark Theme
+   A professional dark theme for Milk CRM Frontend application
+   This file contains overrides for Material UI components and custom CSS
+*/
+
+:root {
+  /* Main Colors */
+  --dark-bg-primary: #121212;
+  --dark-bg-secondary: #1e1e1e;
+  --dark-bg-elevated: #252525;
+  --dark-bg-card: #2a2a2a;
+  --dark-bg-paper: #2d2d2d;
+  --dark-bg-input: #333333;
+
+  /* Text Colors */
+  --dark-text-primary: #ffffff;
+  --dark-text-secondary: rgba(255, 255, 255, 0.7);
+  --dark-text-disabled: rgba(255, 255, 255, 0.5);
+  --dark-text-hint: rgba(255, 255, 255, 0.5);
+
+  /* Accent Colors */
+  --dark-primary: #2196f3; /* Blue */
+  --dark-secondary: #4caf50; /* Green */
+  --dark-error: #f44336; /* Red */
+  --dark-warning: #ff9800; /* Orange */
+  --dark-info: #03a9f4; /* Light Blue */
+  --dark-success: #4caf50; /* Green */
+
+  /* Gradient Colors */
+  --dark-gradient-primary: linear-gradient(45deg, #2196f3, #21cbf3);
+  --dark-gradient-secondary: linear-gradient(45deg, #4caf50, #8bc34a);
+
+  /* Border Colors */
+  --dark-border-light: rgba(255, 255, 255, 0.12);
+  --dark-divider: rgba(255, 255, 255, 0.12);
+
+  /* Shadow Colors */
+  --dark-shadow-1: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --dark-shadow-2: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --dark-shadow-3: 0 8px 16px rgba(0, 0, 0, 0.5);
+
+  /* Status Colors */
+  --dark-status-success-bg: rgba(76, 175, 80, 0.2);
+  --dark-status-warning-bg: rgba(255, 152, 0, 0.2);
+  --dark-status-error-bg: rgba(244, 67, 54, 0.2);
+
+  /* Chart Colors */
+  --dark-chart-grid: rgba(255, 255, 255, 0.1);
+
+  /* Transition */
+  --dark-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Spacing Values (for consistent spacing across components) */
+  --dark-spacing-1: 4px;
+  --dark-spacing-2: 8px;
+  --dark-spacing-3: 12px;
+  --dark-spacing-4: 16px;
+  --dark-spacing-5: 20px;
+  --dark-spacing-6: 24px;
+  --dark-spacing-8: 32px;
+  --dark-spacing-10: 40px;
+  --dark-spacing-12: 48px;
+
+  /* Border Radius */
+  --dark-border-radius-sm: 4px;
+  --dark-border-radius-md: 8px;
+  --dark-border-radius-lg: 12px;
+  --dark-border-radius-xl: 16px;
+  --dark-border-radius-pill: 500px;
+}
+
+/* Apply Dark Theme to Body and HTML */
+html {
+  background-color: var(--dark-bg-primary);
+}
+
+body {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Force all elements to use dark theme colors */
+* {
+  box-sizing: border-box;
+}
+
+/* Global Link Styles */
+a {
+  color: var(--dark-primary);
+  text-decoration: none;
+  transition: var(--dark-transition);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* MUI Global Overrides */
+.MuiCssBaseline-root {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* MUI Container Override */
+.MuiContainer-root {
+  padding: var(--dark-spacing-4) !important;
+}
+
+/* MUI Paper Override */
+.MuiPaper-root {
+  background-color: var(--dark-bg-card) !important;
+  color: var(--dark-text-primary) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  padding: var(--dark-spacing-4) !important;
+}
+
+/* MUI Card Overrides */
+.MuiCard-root {
+  background-color: var(--dark-bg-card) !important;
+  color: var(--dark-text-primary) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  box-shadow: var(--dark-shadow-1) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  overflow: hidden;
+  transition: var(--dark-transition);
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dark-shadow-2) !important;
+}
+
+.MuiCardHeader-root {
+  padding: var(--dark-spacing-4) var(--dark-spacing-6) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+.MuiCardHeader-title {
+  color: var(--dark-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.MuiCardHeader-subheader {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiCardContent-root {
+  padding: var(--dark-spacing-6) !important;
+}
+
+.MuiCardActions-root {
+  padding: var(--dark-spacing-4) var(--dark-spacing-6) !important;
+  border-top: 1px solid var(--dark-border-light) !important;
+}
+
+/* MUI AppBar Override */
+.MuiAppBar-root {
+  background-color: var(--dark-bg-secondary) !important;
+  box-shadow: var(--dark-shadow-1) !important;
+  color: var(--dark-text-primary) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+.MuiAppBar-colorPrimary {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+.MuiToolbar-root {
+  padding: var(--dark-spacing-2) var(--dark-spacing-4) !important;
+  min-height: 64px !important;
+}
+
+/* MUI Drawer Override */
+.MuiDrawer-root {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.MuiDrawer-paper {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+  border-right: 1px solid var(--dark-border-light) !important;
+  width: 260px;
+  box-sizing: border-box;
+  z-index: 1000 !important;
+}
+
+/* MUI Button Override */
+.MuiButton-root {
+  text-transform: none !important;
+  font-weight: 500 !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  padding: var(--dark-spacing-2) var(--dark-spacing-6) !important;
+  transition: var(--dark-transition) !important;
+  height: 36px !important;
+  min-width: 64px !important;
+}
+
+.MuiButton-contained {
+  box-shadow: var(--dark-shadow-1) !important;
+}
+
+.MuiButton-containedPrimary {
+  background: var(--dark-gradient-primary) !important;
+  color: white !important;
+}
+
+.MuiButton-containedSecondary {
+  background: var(--dark-gradient-secondary) !important;
+  color: white !important;
+}
+
+.MuiButton-outlined {
+  border-color: var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.MuiButton-outlinedPrimary {
+  border-color: var(--dark-primary) !important;
+  color: var(--dark-primary) !important;
+}
+
+.MuiButton-outlinedSecondary {
+  border-color: var(--dark-secondary) !important;
+  color: var(--dark-secondary) !important;
+}
+
+.MuiButton-text {
+  color: var(--dark-primary) !important;
+}
+
+.MuiButton-root:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--dark-shadow-2) !important;
+}
+
+/* MUI Input Fields */
+.MuiOutlinedInput-root {
+  background-color: var(--dark-bg-elevated) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  transition: var(--dark-transition) !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: var(--dark-border-light) !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.23) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--dark-primary) !important;
+  border-width: 2px !important;
+}
+
+.MuiInputBase-root {
+  color: var(--dark-text-primary) !important;
+}
+
+.MuiInputBase-input {
+  color: var(--dark-text-primary) !important;
+  padding: var(--dark-spacing-3) var(--dark-spacing-4) !important;
+}
+
+.MuiInputLabel-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: var(--dark-primary) !important;
+}
+
+.MuiFormHelperText-root {
+  color: var(--dark-text-secondary) !important;
+  margin-top: var(--dark-spacing-1) !important;
+  font-size: 0.75rem !important;
+}
+
+.MuiFormControl-root {
+  margin: var(--dark-spacing-2) 0 !important;
+  width: 100% !important;
+}
+
+/* Input Adornment */
+.MuiInputAdornment-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Form Control Label (Checkbox, Radio) */
+.MuiFormControlLabel-root {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Checkbox & Radio */
+.MuiCheckbox-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiCheckbox-colorPrimary.Mui-checked {
+  color: var(--dark-primary) !important;
+}
+
+.MuiRadio-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiRadio-colorPrimary.Mui-checked {
+  color: var(--dark-primary) !important;
+}
+
+/* MUI Data Grid */
+.MuiDataGrid-root {
+  background-color: var(--dark-bg-card) !important;
+  border-color: var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  font-family: inherit !important;
+}
+
+.MuiDataGrid-main {
+  background-color: var(--dark-bg-card) !important;
+}
+
+.MuiDataGrid-columnHeaders {
+  background-color: var(--dark-bg-elevated) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+  font-weight: 600 !important;
+  min-height: 48px !important;
+}
+
+.MuiDataGrid-columnHeaderTitle {
+  font-weight: 600 !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.MuiDataGrid-columnSeparator {
+  color: var(--dark-border-light) !important;
+}
+
+.MuiDataGrid-cell {
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+  padding: 0 var(--dark-spacing-4) !important;
+}
+
+.MuiDataGrid-row {
+  min-height: 48px !important;
+}
+
+.MuiDataGrid-row:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.MuiDataGrid-footer {
+  background-color: var(--dark-bg-elevated) !important;
+  border-top: 1px solid var(--dark-border-light) !important;
+  min-height: 52px !important;
+}
+
+.MuiTablePagination-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiTablePagination-selectIcon {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiSvgIcon-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* MUI Select */
+.MuiSelect-root {
+  padding: var(--dark-spacing-3) var(--dark-spacing-4) !important;
+}
+
+.MuiSelect-select {
+  background-color: var(--dark-bg-elevated) !important;
+  color: var(--dark-text-primary) !important;
+  padding-right: 32px !important;
+}
+
+.MuiSelect-icon {
+  color: var(--dark-text-secondary) !important;
+  right: var(--dark-spacing-2) !important;
+}
+
+.MuiNativeSelect-select {
+  background-color: var(--dark-bg-elevated) !important;
+  color: var(--dark-text-primary) !important;
+  padding: var(--dark-spacing-3) var(--dark-spacing-4) !important;
+}
+
+/* MUI Menu & Select Dropdown */
+.MuiMenu-paper,
+.MuiPopover-paper {
+  background-color: var(--dark-bg-elevated) !important;
+  color: var(--dark-text-primary) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  box-shadow: var(--dark-shadow-2) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  margin-top: var(--dark-spacing-2) !important;
+  min-width: 200px !important;
+}
+
+.MuiMenu-list {
+  padding: var(--dark-spacing-1) 0 !important;
+}
+
+.MuiMenuItem-root {
+  color: var(--dark-text-primary) !important;
+  font-size: 0.875rem !important;
+  padding: var(--dark-spacing-2) var(--dark-spacing-4) !important;
+  min-height: 40px !important;
+  transition: var(--dark-transition) !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.MuiMenuItem-root.Mui-selected {
+  background-color: rgba(33, 150, 243, 0.15) !important;
+}
+
+.MuiMenuItem-root.Mui-selected:hover {
+  background-color: rgba(33, 150, 243, 0.25) !important;
+}
+
+/* MUI Dialog */
+.MuiDialog-paper {
+  background-color: var(--dark-bg-card) !important;
+  color: var(--dark-text-primary) !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  box-shadow: var(--dark-shadow-3) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  max-width: 600px !important;
+  width: 100% !important;
+  margin: var(--dark-spacing-4) !important;
+}
+
+.MuiDialogTitle-root {
+  color: var(--dark-text-primary) !important;
+  padding: var(--dark-spacing-4) var(--dark-spacing-6) !important;
+  background-color: var(--dark-bg-elevated) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+}
+
+.MuiDialogContent-root {
+  padding: var(--dark-spacing-6) !important;
+}
+
+.MuiDialogActions-root {
+  padding: var(--dark-spacing-4) var(--dark-spacing-6) !important;
+  border-top: 1px solid var(--dark-border-light) !important;
+}
+
+.MuiDialogContentText-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* MUI Typography */
+.MuiTypography-root {
+  color: var(--dark-text-primary) !important;
+}
+
+.MuiTypography-h1,
+.MuiTypography-h2,
+.MuiTypography-h3,
+.MuiTypography-h4,
+.MuiTypography-h5,
+.MuiTypography-h6 {
+  color: var(--dark-text-primary) !important;
+  font-weight: 600 !important;
+  margin-bottom: var(--dark-spacing-4) !important;
+}
+
+.MuiTypography-h1 {
+  font-size: 2.5rem !important;
+}
+
+.MuiTypography-h2 {
+  font-size: 2rem !important;
+}
+
+.MuiTypography-h3 {
+  font-size: 1.75rem !important;
+}
+
+.MuiTypography-h4 {
+  font-size: 1.5rem !important;
+}
+
+.MuiTypography-h5 {
+  font-size: 1.25rem !important;
+}
+
+.MuiTypography-h6 {
+  font-size: 1.125rem !important;
+}
+
+.MuiTypography-body1 {
+  font-size: 1rem !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.MuiTypography-body2 {
+  font-size: 0.875rem !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiTypography-subtitle1 {
+  font-size: 1rem !important;
+  color: var(--dark-text-primary) !important;
+  font-weight: 500 !important;
+}
+
+.MuiTypography-subtitle2 {
+  font-size: 0.875rem !important;
+  color: var(--dark-text-secondary) !important;
+  font-weight: 500 !important;
+}
+
+/* ===== CUSTOM APP COMPONENTS ===== */
+
+/* Admin Layout */
+.admin-layout {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* Admin Header */
+.admin-header {
+  background-color: var(--dark-bg-secondary) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  box-shadow: var(--dark-shadow-1) !important;
+}
+
+.admin-header input::placeholder {
+  color: var(--dark-text-secondary);
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  background-color: var(--dark-bg-secondary) !important;
+  border-right: 1px solid var(--dark-border-light) !important;
+}
+
+.sidebar-logo {
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+.sidebar-menu-item {
+  border-radius: 8px;
+  transition: var(--dark-transition);
+}
+
+.sidebar-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-menu-item.active {
+  background: var(--dark-gradient-primary);
+  color: var(--dark-text-primary);
+}
+
+.sidebar-icon {
+  color: var(--dark-text-secondary);
+}
+
+.sidebar-menu-item.active .sidebar-icon,
+.sidebar-menu-item.active .sidebar-text {
+  color: white !important;
+}
+
+.sidebar-text {
+  color: var(--dark-text-primary);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background-color: var(--dark-bg-card) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  box-shadow: var(--dark-shadow-1) !important;
+  transition: var(--dark-transition) !important;
+  padding: var(--dark-spacing-6) !important;
+  height: 100% !important;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--dark-shadow-2);
+}
+
+.card-gradient {
+  background: var(--dark-gradient-primary);
+}
+
+.card-header {
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary);
+  padding-bottom: var(--dark-spacing-4) !important;
+  margin-bottom: var(--dark-spacing-4) !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+
+.card-value {
+  color: var(--dark-text-primary);
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin-bottom: var(--dark-spacing-2) !important;
+}
+
+.card-label {
+  color: var(--dark-text-secondary);
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  margin-bottom: var(--dark-spacing-3) !important;
+}
+
+/* Dashboard Overview Cards (like in the screenshot) */
+.MuiGrid-root .MuiPaper-root {
+  background-color: var(--dark-bg-card) !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  padding: var(--dark-spacing-6) !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  transition: var(--dark-transition) !important;
+  box-shadow: var(--dark-shadow-1) !important;
+  border: 1px solid var(--dark-border-light) !important;
+}
+
+.MuiGrid-root .MuiPaper-root:hover {
+  box-shadow: var(--dark-shadow-2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Chart Container */
+.chart-container {
+  background-color: var(--dark-bg-card) !important;
+  border: 1px solid var(--dark-border-light) !important;
+}
+
+/* Tables */
+.dashboard-table th {
+  background-color: var(--dark-bg-elevated) !important;
+  color: var(--dark-text-secondary) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+.dashboard-table td {
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.dashboard-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Status Tags */
+.status-delivered {
+  background-color: var(--dark-status-success-bg) !important;
+  color: var(--dark-success) !important;
+}
+
+.status-pending {
+  background-color: var(--dark-status-warning-bg) !important;
+  color: var(--dark-warning) !important;
+}
+
+.status-failed {
+  background-color: var(--dark-status-error-bg) !important;
+  color: var(--dark-error) !important;
+}
+
+/* Footer */
+.admin-footer {
+  background-color: var(--dark-bg-secondary) !important;
+  border-top: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+.admin-footer a {
+  color: var(--dark-primary) !important;
+}
+
+/* Forms and Inputs */
+.dashboard-control {
+  background-color: var(--dark-bg-elevated) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.dashboard-control:focus {
+  border-color: var(--dark-primary) !important;
+}
+
+/* Settings Page */
+.settings-section {
+  background-color: var(--dark-bg-card) !important;
+  border: 1px solid var(--dark-border-light) !important;
+}
+
+.settings-header {
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+.settings-title {
+  color: var(--dark-text-primary) !important;
+}
+
+.settings-label {
+  color: var(--dark-text-secondary) !important;
+}
+
+.settings-input {
+  background-color: var(--dark-bg-elevated) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.settings-input:focus {
+  border-color: var(--dark-primary) !important;
+}
+
+/* Management Sections */
+.management-card {
+  background-color: var(--dark-bg-card) !important;
+  border: 1px solid var(--dark-border-light) !important;
+}
+
+.management-card-header {
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+.management-card-title {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-bg-elevated);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-primary);
+}
+
+/* ModernStaffManagement & ModernClientManagement */
+.add-button {
+  background: var(--dark-gradient-primary) !important;
+  color: white !important;
+}
+
+.delete-button {
+  background-color: var(--dark-error) !important;
+  color: white !important;
+}
+
+.edit-button {
+  background-color: var(--dark-primary) !important;
+  color: white !important;
+}
+
+/* Dialog Content */
+.dialog-content {
+  background-color: var(--dark-bg-card) !important;
+  color: var(--dark-text-primary) !important;
+}

@@ -1,0 +1,71 @@
+// Custom ThemeProvider to apply our dark theme to Material UI components
+import React from 'react';
+import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+// Import the necessary package for DataGrid styling
+// Note: This is just for type declaration, you'll need to install the actual package
+// using npm install @mui/x-data-grid if you haven't already
+declare module '@mui/material/styles' {
+  interface ComponentNameToClassKey {
+    MuiDataGrid: any;
+  }
+
+  interface ComponentsPropsList {
+    MuiDataGrid: any;
+  }
+  
+  interface Components {
+    MuiDataGrid?: {
+      defaultProps?: Record<string, any>;
+      styleOverrides?: {
+        root?: any;
+        [key: string]: any;
+      };
+      variants?: any[];
+    };
+  }
+}
+
+// Create a minimal theme - all styling will be handled by CSS files
+const darkTheme = createTheme({
+  // Base dark mode palette required for proper component functionality
+  palette: {
+    mode: 'dark',
+    // Minimal palette settings - everything else will be in CSS
+    primary: {
+      main: '#2196f3',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: 'rgba(255, 255, 255, 0.7)',
+    },
+  },
+  // Empty components section - all styling through CSS
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          // Only basic body styles
+          backgroundColor: '#121212',
+          color: '#ffffff',
+        },
+      },
+    },
+  },
+});
+
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  return (
+    <MuiThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  );
+};
+
+export default ThemeProvider;

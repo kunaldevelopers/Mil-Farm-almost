@@ -1,0 +1,169 @@
+/* 
+   Dashboard-specific Dark Theme Styles 
+   This file enhances the dark theme specifically for the dashboard
+*/
+
+/* Dashboard Title */
+.dashboard-overview-title {
+  color: var(--dark-text-primary) !important;
+  font-size: 1.75rem !important;
+  font-weight: 600 !important;
+  margin-bottom: var(--dark-spacing-6) !important;
+}
+
+/* Dashboard Stats Cards */
+.stats-card {
+  background-color: var(--dark-bg-card) !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  padding: var(--dark-spacing-6) !important;
+  height: 100% !important;
+}
+
+.stats-card-value {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--dark-text-primary) !important;
+  margin-bottom: var(--dark-spacing-2) !important;
+}
+
+.stats-card-label {
+  color: var(--dark-text-secondary) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
+
+.stats-trend {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--dark-spacing-1) !important;
+  margin-top: var(--dark-spacing-2) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+.stats-trend-up {
+  color: var(--dark-success) !important;
+}
+
+.stats-trend-down {
+  color: var(--dark-error) !important;
+}
+
+/* Chart Section */
+.chart-section {
+  background-color: var(--dark-bg-card) !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  padding: var(--dark-spacing-6) !important;
+  margin: var(--dark-spacing-6) 0 !important;
+}
+
+.chart-section-title {
+  color: var(--dark-text-primary) !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-bottom: var(--dark-spacing-4) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.chart-placeholder {
+  color: var(--dark-text-secondary) !important;
+  text-align: center !important;
+  padding: var(--dark-spacing-10) 0 !important;
+  font-style: italic !important;
+}
+
+/* Date Range Selector in Dashboard */
+.date-range-selector {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--dark-spacing-4) !important;
+}
+
+.date-display {
+  background-color: var(--dark-bg-elevated) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  padding: var(--dark-spacing-2) var(--dark-spacing-4) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--dark-spacing-2) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.date-display svg {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Clients Section */
+.clients-section {
+  background-color: var(--dark-bg-card) !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  padding: var(--dark-spacing-6) !important;
+  margin-top: var(--dark-spacing-6) !important;
+}
+
+.clients-section-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: var(--dark-spacing-4) !important;
+}
+
+.clients-section-title {
+  color: var(--dark-text-primary) !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+}
+
+.priority-tag {
+  background-color: var(--dark-error) !important;
+  color: white !important;
+  border-radius: var(--dark-border-radius-pill) !important;
+  padding: var(--dark-spacing-1) var(--dark-spacing-3) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.no-data-message {
+  color: var(--dark-text-secondary) !important;
+  text-align: center !important;
+  padding: var(--dark-spacing-6) 0 !important;
+  font-style: italic !important;
+}
+
+/* Refresh Button */
+.refresh-button {
+  background-color: var(--dark-primary) !important;
+  color: white !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  padding: var(--dark-spacing-2) var(--dark-spacing-4) !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  transition: var(--dark-transition) !important;
+}
+
+.refresh-button:hover {
+  background-color: #1976d2 !important;
+  box-shadow: var(--dark-shadow-1) !important;
+}
+
+/* Shift Selector */
+.shift-selector {
+  background-color: var(--dark-bg-elevated) !important;
+  border: 1px solid var(--dark-border-light) !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  padding: var(--dark-spacing-1) var(--dark-spacing-2) !important;
+  color: var(--dark-text-primary) !important;
+  min-width: 100px !important;
+}
+
+/* Currency Display */
+.currency-display {
+  color: var(--dark-text-secondary) !important;
+  font-weight: 500 !important;
+}

@@ -1,0 +1,230 @@
+/* Premium Navbar Styling */
+.premium-navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(18, 18, 18, 0.75) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.premium-navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  height: 70px;
+}
+
+.premium-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.premium-navbar-logo {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.premium-navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+.premium-navbar-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #d1d1d1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.premium-navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.premium-navbar-link {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  position: relative;
+}
+
+.premium-navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.premium-navbar-link.active {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #64b5f6;
+}
+
+.premium-navbar-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: linear-gradient(90deg, #2196f3, rgba(33, 150, 243, 0));
+  border-radius: 4px;
+}
+
+.premium-navbar-link-icon {
+  font-size: 1.2rem;
+}
+
+.premium-navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.premium-navbar-profile {
+  position: relative;
+}
+
+.premium-navbar-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.premium-navbar-avatar:hover {
+  border-color: rgba(33, 150, 243, 0.5);
+  transform: scale(1.05);
+}
+
+.premium-navbar-logout-button {
+  background: rgba(244, 67, 54, 0.15) !important;
+  color: #ff7961 !important;
+  transition: all 0.2s ease !important;
+  border-radius: 6px !important;
+  padding: 8px 16px !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  border: 1px solid rgba(244, 67, 54, 0.2) !important;
+}
+
+.premium-navbar-logout-button:hover {
+  background: rgba(244, 67, 54, 0.25) !important;
+  border-color: rgba(244, 67, 54, 0.3) !important;
+}
+
+.premium-navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  backdrop-filter: blur(10px);
+  transform-origin: top right;
+  animation: dropdownFadeIn 0.2s ease forwards;
+  z-index: 1200;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Admin Layout Styles */
+.admin-layout {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(30, 30, 30, 1) 100%
+  );
+}
+
+.admin-footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-footer p {
+  margin: 0.3rem 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+.admin-footer a {
+  color: #64b5f6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.admin-footer a:hover {
+  color: #2196f3;
+  text-decoration: underline;
+}
+
+.premium-navbar-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.premium-navbar-dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.premium-navbar-dropdown-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.premium-navbar-user-name {
+  padding: 8px 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}

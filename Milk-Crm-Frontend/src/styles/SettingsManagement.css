@@ -1,0 +1,305 @@
+/* Settings Management custom styling */
+.settings-container {
+  padding: 1.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.settings-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.settings-panel {
+  background-color: rgba(30, 30, 30, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px !important;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out,
+    border-color 0.2s ease-out !important;
+  position: relative;
+}
+
+.settings-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.settings-panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.settings-panel:hover::after {
+  opacity: 1;
+}
+
+.settings-panel-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.settings-panel-icon {
+  margin-right: 1rem;
+  color: var(--primary-color, #2196f3);
+}
+
+.settings-panel-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.settings-panel-content {
+  padding: 1.5rem !important;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.settings-form-field {
+  margin-bottom: 0.8rem;
+}
+
+.settings-form-field label {
+  color: rgba(255, 255, 255, 0.87) !important;
+  font-weight: 500;
+}
+
+.settings-form-field .MuiOutlinedInput-root {
+  border-radius: 8px !important;
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  transition: background-color 0.3s, box-shadow 0.3s !important;
+}
+
+.settings-form-field .MuiOutlinedInput-input {
+  padding: 14px 16px !important;
+}
+
+.settings-form-field .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  transition: border-color 0.3s !important;
+}
+
+.settings-form-field .MuiOutlinedInput-root:hover {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+.settings-form-field
+  .MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.settings-form-field .MuiOutlinedInput-root.Mui-focused {
+  background-color: rgba(33, 150, 243, 0.1) !important;
+  box-shadow: 0 0 0 1px rgba(33, 150, 243, 0.2) !important;
+}
+
+.settings-form-field
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color, #2196f3) !important;
+  border-width: 1px !important;
+}
+
+.settings-button {
+  border-radius: 8px !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  position: relative;
+  overflow: hidden !important;
+}
+
+.settings-button-primary {
+  background: linear-gradient(135deg, #2196f3 0%, #1e88e5 100%) !important;
+  color: white !important;
+}
+
+.settings-button-primary:hover {
+  background: linear-gradient(135deg, #1e88e5 0%, #1976d2 100%) !important;
+  box-shadow: 0 6px 12px rgba(33, 150, 243, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.settings-button-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3) !important;
+}
+
+.settings-button-primary:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  100% {
+    left: 200%;
+  }
+}
+
+.settings-button-error {
+  background-color: rgba(244, 67, 54, 0.1) !important;
+  color: #f44336 !important;
+  border: 1px solid rgba(244, 67, 54, 0.5) !important;
+}
+
+.settings-button-error:hover {
+  background-color: rgba(244, 67, 54, 0.2) !important;
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.25) !important;
+}
+
+.settings-button-error:active {
+  background-color: rgba(244, 67, 54, 0.3) !important;
+  transform: translateY(1px);
+}
+
+.admin-list-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 0.85rem !important;
+  transition: background-color 0.3s !important;
+  border-radius: 6px !important;
+  margin-bottom: 4px !important;
+}
+
+.admin-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.admin-list-item:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+}
+
+.admin-list-item .MuiListItemText-primary {
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.admin-list-item .MuiListItemText-secondary {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.admin-list-empty {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 2.5rem 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.settings-alert {
+  border-radius: 4px !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.settings-tab-selector {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(20, 20, 20, 0.6) !important;
+  border-radius: 8px !important;
+}
+
+.settings-tab {
+  padding: 1rem 1.5rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 500 !important;
+  min-width: 120px !important;
+  transition: color 0.3s, background-color 0.3s !important;
+  border-radius: 8px 8px 0 0 !important;
+  text-transform: none !important;
+}
+
+.settings-tab:hover:not(.Mui-selected) {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.settings-tab.Mui-selected {
+  color: var(--primary-color, #2196f3) !important;
+  font-weight: 600 !important;
+}
+
+/* Customizing the indicator */
+.MuiTabs-indicator {
+  height: 3px !important;
+  border-radius: 3px !important;
+  background: linear-gradient(90deg, #2196f3, #64b5f6) !important;
+}
+
+.settings-dialog {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+.settings-dialog-title {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  padding: 1.25rem 1.5rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}

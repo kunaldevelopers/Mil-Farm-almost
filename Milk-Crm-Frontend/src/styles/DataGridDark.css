@@ -1,0 +1,234 @@
+/* 
+   Data Grid Dark Theme Styles
+   Enhanced styling specifically for MUI DataGrid components in dark theme
+*/
+
+/* Main DataGrid Container */
+.MuiDataGrid-root {
+  border: none !important;
+  border-radius: var(--dark-border-radius-lg) !important;
+  background-color: var(--dark-bg-card) !important;
+  color: var(--dark-text-primary) !important;
+  box-shadow: var(--dark-shadow-1) !important;
+  font-family: inherit !important;
+}
+
+/* DataGrid Header */
+.MuiDataGrid-columnHeaders {
+  background-color: var(--dark-bg-elevated) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  color: var(--dark-text-primary) !important;
+  font-weight: 600 !important;
+  min-height: 56px !important;
+}
+
+.MuiDataGrid-columnHeaderTitle {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  color: var(--dark-text-primary) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Column Header Icons */
+.MuiDataGrid-iconButtonContainer .MuiSvgIcon-root,
+.MuiDataGrid-sortIcon {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* DataGrid Cells */
+.MuiDataGrid-cell {
+  padding: 0 16px !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+}
+
+/* DataGrid Rows */
+.MuiDataGrid-row {
+  min-height: 52px !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.MuiDataGrid-row:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.MuiDataGrid-row.Mui-selected {
+  background-color: rgba(33, 150, 243, 0.15) !important;
+}
+
+.MuiDataGrid-row.Mui-selected:hover {
+  background-color: rgba(33, 150, 243, 0.25) !important;
+}
+
+/* Footer / Pagination */
+.MuiDataGrid-footerContainer {
+  border-top: 1px solid var(--dark-border-light) !important;
+  background-color: var(--dark-bg-elevated) !important;
+  min-height: 52px !important;
+}
+
+.MuiTablePagination-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiTablePagination-selectIcon {
+  color: var(--dark-text-secondary) !important;
+}
+
+.MuiTablePagination-actions .MuiSvgIcon-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* No Rows Overlay */
+.MuiDataGrid-overlay {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Status Chips */
+.status-chip {
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  height: 24px !important;
+}
+
+.status-active {
+  background-color: rgba(76, 175, 80, 0.15) !important;
+  color: var(--dark-success) !important;
+}
+
+.status-inactive {
+  background-color: rgba(244, 67, 54, 0.15) !important;
+  color: var(--dark-error) !important;
+}
+
+.priority-high {
+  background-color: rgba(244, 67, 54, 0.15) !important;
+  color: var(--dark-error) !important;
+}
+
+.priority-normal {
+  background-color: rgba(255, 152, 0, 0.15) !important;
+  color: var(--dark-warning) !important;
+}
+
+.shift-am {
+  background-color: rgba(3, 169, 244, 0.15) !important;
+  color: var(--dark-info) !important;
+}
+
+.shift-pm {
+  background-color: rgba(156, 39, 176, 0.15) !important;
+  color: #ce93d8 !important;
+}
+
+/* Action Buttons in DataGrid */
+.action-button {
+  padding: 4px !important;
+  margin: 0 4px !important;
+}
+
+.edit-button {
+  color: var(--dark-info) !important;
+}
+
+.edit-button:hover {
+  background-color: rgba(3, 169, 244, 0.15) !important;
+}
+
+.delete-button {
+  color: var(--dark-error) !important;
+}
+
+.delete-button:hover {
+  background-color: rgba(244, 67, 54, 0.15) !important;
+}
+
+/* Management Panel Styles */
+.management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--dark-border-light);
+}
+
+.management-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: var(--dark-text-primary) !important;
+}
+
+.management-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-field {
+  width: 240px;
+}
+
+.filter-button {
+  min-width: 0;
+  padding: 8px;
+}
+
+.add-button {
+  background: var(--dark-gradient-primary) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  padding: 6px 16px !important;
+  border-radius: var(--dark-border-radius-md) !important;
+  box-shadow: none !important;
+  transition: var(--dark-transition) !important;
+}
+
+.add-button:hover {
+  box-shadow: var(--dark-shadow-1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Dialog Form Styles */
+.form-dialog-title {
+  background-color: var(--dark-bg-elevated) !important;
+  border-bottom: 1px solid var(--dark-border-light) !important;
+  padding: 16px 24px !important;
+}
+
+.form-dialog-content {
+  padding: 24px !important;
+}
+
+.form-dialog-actions {
+  padding: 16px 24px !important;
+  border-top: 1px solid var(--dark-border-light) !important;
+}
+
+.form-control {
+  margin-bottom: 16px !important;
+}
+
+/* Form Field Icons */
+.MuiInputAdornment-root .MuiSvgIcon-root {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Custom Cell Styles */
+.client-name-cell {
+  font-weight: 500;
+  color: var(--dark-text-primary);
+}
+
+.quantity-cell {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.price-cell {
+  font-variant-numeric: tabular-nums;
+  color: var(--dark-success);
+  font-weight: 600;
+}

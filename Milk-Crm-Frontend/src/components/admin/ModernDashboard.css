@@ -1,0 +1,418 @@
+/* 
+   Modern Dark Admin Dashboard Styling 
+   Updated with dark theme compatibility
+*/
+:root {
+  --bg-dark: #121212;
+  --bg-dark-light: #1e1e1e;
+  --bg-card: #252525;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --accent-blue: #2196f3;
+  --accent-green: #4caf50;
+  --accent-red: #f44336;
+  --accent-yellow: #ff9800;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --hover-color: rgba(33, 150, 243, 0.1);
+  --chart-grid: rgba(255, 255, 255, 0.1);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --gradient-primary: linear-gradient(45deg, #2196f3, #21cbf3);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Layout Styles */
+.admin-layout {
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+/* Sidebar Styles */
+.admin-sidebar {
+  background-color: var(--bg-dark-light);
+  box-shadow: var(--shadow);
+  border-right: 1px solid var(--border-color);
+  width: 260px;
+}
+
+.sidebar-logo {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-menu-item {
+  border-radius: 8px;
+  margin: 0.5rem 0.75rem;
+  transition: var(--transition);
+}
+
+.sidebar-menu-item:hover {
+  background-color: var(--hover-color);
+}
+
+.sidebar-menu-item.active {
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow);
+}
+
+.sidebar-icon {
+  color: var(--text-primary);
+}
+
+.sidebar-text {
+  font-weight: 500;
+}
+
+/* Header Styles */
+.admin-header {
+  background-color: var(--bg-dark-light);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  height: 70px;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-actions button {
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.card-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.card-trend {
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.trend-up {
+  color: var(--accent-green);
+}
+
+.trend-down {
+  color: var(--accent-red);
+}
+
+/* Chart Styles */
+.chart-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  height: 300px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Table Styles */
+.dashboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dashboard-table th {
+  background-color: var(--bg-dark-light);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dashboard-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-delivered {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: var(--accent-green);
+}
+
+.status-pending {
+  background-color: rgba(255, 152, 0, 0.15);
+  color: var(--accent-yellow);
+}
+
+.status-failed {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: var(--accent-red);
+}
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Layouts */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 70px;
+  }
+
+  .sidebar-text {
+    display: none;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* Footer Styles */
+.admin-footer {
+  background-color: var(--bg-dark-light);
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-secondary);
+  margin-top: 2rem;
+}
+
+.admin-footer a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.admin-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Button Styles */
+.dashboard-btn {
+  background: var(--gradient-primary);
+  border: none;
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.dashboard-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+/* Form Controls */
+.dashboard-control {
+  background-color: var(--bg-dark-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+}
+
+.dashboard-control:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+}
+
+/* Circular Progress & Stats */
+.circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.progress-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Card Sets for Management Sections */
+.management-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.management-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.management-card:hover {
+  transform: translateY(-5px);
+}
+
+.management-card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.management-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.management-card-body {
+  padding: 1.5rem;
+}
+
+/* Settings Page */
+.settings-section {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.settings-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.settings-body {
+  padding: 1.5rem;
+}
+
+.settings-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.settings-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.settings-input {
+  width: 100%;
+  background-color: var(--bg-dark-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+}
+
+.settings-input:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+}
