@@ -50,7 +50,6 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
       {/* Mobile Drawer */}
       {isMobile && (
         <>
-          {" "}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -81,12 +80,12 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 background: "transparent",
                 boxShadow: "none",
                 width: "260px",
-                marginTop: "70px", // Height of navbar
+                marginTop: "70px",
                 height: "calc(100% - 70px)",
               },
             }}
             ModalProps={{
-              keepMounted: true, // Better performance on mobile
+              keepMounted: true,
             }}
           >
             <PremiumSidebar
@@ -110,7 +109,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           <Box
             sx={{
               position: "fixed",
-              top: "70px", // Height of the navbar
+              top: "70px",
               left: 0,
               height: "calc(100vh - 70px)",
               width: sidebarWidth,
@@ -133,21 +132,15 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
         sx={{
           flexGrow: 1,
           padding: "1.5rem",
-          paddingTop: "calc(70px + 1.5rem)", // Space for the navbar
+          paddingTop: "calc(70px + 1.5rem)",
           marginLeft: isMobile ? 0 : `${sidebarWidth}px`,
           transition: "margin-left 0.3s ease",
           backgroundColor: "var(--dark-bg-primary)",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        {children}
-        <Box className="admin-footer">
-          <p>
-            © {new Date().getFullYear()} Sudha Diary Farm. All rights reserved.
-          </p>
-          <p>
-            Powered by <a href="#">Energix Global</a>
-          </p>
-        </Box>
+        <Box sx={{ flexGrow: 1 }}>{children}</Box>
       </Box>
     </Box>
   );

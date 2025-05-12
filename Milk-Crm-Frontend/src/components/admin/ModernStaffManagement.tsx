@@ -33,14 +33,24 @@ import PasswordIcon from "@mui/icons-material/Password";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 interface FormData {
+  [key: string]: string; // Add index signature
   name: string;
   email: string;
   phone: string;
   password: string;
   confirmPassword: string;
   address: string;
-  zone: string;
   shift: "AM" | "PM";
+}
+
+interface ApiData {
+  name: string;
+  username: string;
+  contactNumber: string;
+  location: string;
+  shift: "AM" | "PM";
+  password?: string; // Optional for updates
+  role?: string; // Optional for updates
 }
 
 const initialFormData: FormData = {
@@ -50,7 +60,6 @@ const initialFormData: FormData = {
   password: "",
   confirmPassword: "",
   address: "",
-  zone: "",
   shift: "AM",
 };
 
@@ -95,16 +104,46 @@ const ModernStaffManagement: React.FC = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const validateForm = (): boolean => {
+    setError("");
+    setPasswordError("");
 
-  const validateForm = () => {
-    if (formData.password !== formData.confirmPassword) {
-      setPasswordError("Passwords don't match");
+    // Check required fields
+    const requiredFields = ["name", "email", "phone", "shift"];
+    if (!editingId) {
+      requiredFields.push("password", "confirmPassword");
+    }
+
+    const missing = requiredFields.filter((field) => !formData[field]?.trim());
+    if (missing.length > 0) {
+      setError(`Required fields missing: ${missing.join(", ")}`);
       return false;
     }
 
-    if (!editingId && formData.password.length < 6) {
-      setPasswordError("Password must be at least 6 characters");
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setError("Please enter a valid email address");
       return false;
+    }
+
+    // Phone validation
+    if (!/^\d{10}$/.test(formData.phone.trim())) {
+      setError("Phone number should be 10 digits");
+      return false;
+    }
+
+    // Password validation for new staff or when updating password
+    if (formData.password || !editingId) {
+      if (formData.password.length < 6) {
+        setPasswordError("Password must be at least 6 characters");
+        return false;
+      }
+
+      if (formData.password !== formData.confirmPassword) {
+        setPasswordError("Passwords don't match");
+        return false;
+      }
     }
 
     return true;
@@ -117,30 +156,47 @@ const ModernStaffManagement: React.FC = () => {
     }
 
     try {
-      if (editingId) {
-        // Only send password if it's provided for update
-        const dataToSend = { ...formData };
-        if (!dataToSend.password) {
-          // Don't include password or confirmPassword if not provided
-          const { password, confirmPassword, ...dataWithoutPassword } =
-            dataToSend;
-          await staff.update(editingId, dataWithoutPassword);
-        } else {
-          // Include password but not confirmPassword
-          const { confirmPassword, ...dataWithPassword } = dataToSend;
-          await staff.update(editingId, dataWithPassword);
-        }
+      // Create data object with required fields
+      const apiData: ApiData = {
+        name: formData.name.trim(),
+        username: formData.email.trim(),
+        contactNumber: formData.phone.trim(),
+        location: formData.address.trim(),
+        shift: formData.shift,
+      };
+
+      if (!editingId) {
+        // Creating new staff
+        const createData: ApiData = {
+          ...apiData,
+          password: formData.password,
+          role: "staff",
+        };
+        console.log("Creating new staff:", createData);
+        await staff.add(createData);
       } else {
-        const { confirmPassword, ...dataToSend } = formData;
-        await staff.add(dataToSend);
+        // Updating existing staff
+        const updateData: ApiData = {
+          ...apiData,
+        };
+        if (formData.password) {
+          updateData.password = formData.password;
+        }
+        console.log("Updating staff:", updateData);
+        await staff.update(editingId, updateData);
       }
+
+      // Reset form and refresh list
       setFormData(initialFormData);
       setEditingId(null);
       setShowForm(false);
       fetchStaff();
-    } catch (err) {
+    } catch (err: any) {
       console.error("Error saving staff:", err);
-      setError("Failed to save staff. Please check your input and try again.");
+      setError(
+        err.response?.data?.message ||
+          "Failed to save staff. Please check your input and try again."
+      );
     }
   };
   const handleEdit = (staffMember: Staff) => {
@@ -151,7 +207,6 @@ const ModernStaffManagement: React.FC = () => {
       password: "",
       confirmPassword: "",
       address: staffMember.location || "", // Use location as address
-      zone: staffMember.location || "", // Use location as zone too since staff type doesn't have zone
       shift: staffMember.shift as "AM" | "PM",
     });
     setEditingId(staffMember._id);
@@ -534,37 +589,6 @@ const ModernStaffManagement: React.FC = () => {
                     InputProps={{
                       startAdornment: (
                         <LocationOnIcon
-                          sx={{ color: "var(--text-secondary)", mr: 1 }}
-                        />
-                      ),
-                    }}
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        color: "var(--text-primary)",
-                        backgroundColor: "var(--bg-dark-light)",
-                        "& fieldset": {
-                          borderColor: "var(--border-color)",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "var(--accent-blue)",
-                        },
-                      },
-                      "& .MuiInputLabel-root": {
-                        color: "var(--text-secondary)",
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <TextField
-                    fullWidth
-                    label="Zone"
-                    name="zone"
-                    value={formData.zone}
-                    onChange={handleInputChange}
-                    InputProps={{
-                      startAdornment: (
-                        <LocationCityIcon
                           sx={{ color: "var(--text-secondary)", mr: 1 }}
                         />
                       ),
